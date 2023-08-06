@@ -1,0 +1,21 @@
+
+{% extends 'Portafolio/base.html' %}
+
+
+{% block content %}
+{% load static %}
+<div class='hero'>
+    <div class='hero-content'>
+        <div class='left'>
+            <h1>Excelente! correo enviado</h1>
+            <p>Ahora los enanitos de los PC me contactaran para responder este correo a la brevedad, muchas gracias por el interes 
+        </div>
+        <div class='right'>
+               <img src='{% static 'email-read.png' %}' width="600px" />
+               
+        </div>
+    </div>
+</div>
+
+
+{% endblock%}

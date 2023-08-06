@@ -1,0 +1,59 @@
+
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - Portafolio</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <div class='logo'>JUAN ALMENDRA</div>
+        <nav>
+            <ul>
+                <li> <a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href='/index/#contacto'>Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+{% block content %} {% endblock %}
+
+
+
+    <section></section>
+    <div class='footer'>
+        <div class='center full-width'>
+            <div class='row'>
+                <h3>Contáctame :)</h3>
+            </div>
+        </div>
+        <div class='center full-width'>
+            <div class='row'>
+                <p>O también puedes seguirme en mis redes sociales.</p>
+            </div>
+        </div>
+        <div class='center full-width social-links'>
+            <div class='row'>
+                <a href='#'><img class='social' width=30 src='{% static "twitter.png" %}' /></a>
+                <a href='#'><img class='social' width=30 src='{% static "facebook.png" %}' /></a>
+                <a href='#'><img class='social' width=30 src='{% static "linkedin.png" %}' /></a>
+            </div>
+        </div>
+        <div class='made-with'>
+            <div class='row'>
+                <p>Hecho con ♥ por Juan Almendra</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
