@@ -134,4 +134,4 @@ EMAIL_USE_SSL = True    # use port 465
 EMAIL_USE_TLS=False
 EMAIL_PORT=465
 EMAIL_HOST_USER="correosdjango@gmail.com"
-EMAIL_HOST_PASSWORD="luqurdylwweozwbr"
+EMAIL_HOST_PASSWORD="xdqhkjqjdpobzvmf"
