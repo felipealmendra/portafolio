@@ -17,8 +17,13 @@
 </head>
 <body>
     <header>
-        <div class='logo'>JUAN ALMENDRA</div>
-        <nav>
+        <div class='logo'>JUAN ALMENDRA  
+             {% if is_pc %}
+            <span class="device-info">(Estás en una computadora)</span>
+             {% else %}
+            <span class="device-info">(Estás en un dispositivo móvil)</span>
+             {% endif %}</div>
+            <nav>
             <ul>
                 <li> <a href="{% url 'index' %}">Inicio</a></li>
                 <li><a href='/index/#contacto'>Contacto</a></li>
@@ -54,6 +59,7 @@
             </div>
         </div>
     </div>
+   
 </body>
 </html>
 

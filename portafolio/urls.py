@@ -27,5 +27,6 @@ urlpatterns = [
     path('base/', view.base, name='Base'),
     path('portfolio/mail/', view.portfolio_mail_view, name='portfolio.mail'),
     path('prueba/', view.prueba, name='Prueba'),
+    path('download/', view.download_apk, name='download_apk'),
     
 ]
