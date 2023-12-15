@@ -4,23 +4,29 @@ from django.conf import settings
 from django.http import HttpResponse, FileResponse
 from user_agents import parse
 import os
+import requests 
+
 
 
 
 def index(request):
-    user_agent_string = request.META.get('HTTP_USER_AGENT','')
+    # Realiza la solicitud a 'https://httpbin.org/status/418'
+    r = requests.get('https://httpbin.org/status/418')
+    
+    # Imprime el texto de la respuesta en la consola (puedes quitar esto en producción)
+    print(r.text)
+    
+    # Tu lógica actual para determinar si es un dispositivo móvil o PC
+    user_agent_string = request.META.get('HTTP_USER_AGENT', '')
     ua_object = parse(user_agent_string)
-    
-    # Verifica si es un dispositivo móvil
     is_mobile = ua_object.is_mobile
-    
-    # Verifica si es una PC
     is_pc = ua_object.is_pc
     
     print("is_pc:", is_pc)
     
-    return render(request,"portafolio/index.html", {'is_mobile': is_mobile, 'is_pc': is_pc})
-
+    # Retorna una respuesta HTTP con el contenido de la respuesta de la solicitud
+    return render(request, "portafolio/index.html", {'is_mobile': is_mobile, 'is_pc': is_pc})
+    
 def download_apk(request):
     apk_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'apk/app-debug.apk')
     response = FileResponse(open(apk_path, 'rb'), as_attachment=True)

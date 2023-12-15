@@ -84,18 +84,22 @@ WSGI_APPLICATION = 'portafolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.pg2',
+        'NAME': 'dad137k1b6nplk',
+        'HOST': 'ec2-18-204-162-101.compute-1.amazonaws.com',
+        'USER': 'szybpftgibrfhl',
+        'PASSWORD': '6495fb003fdf1be15ffa7e283041c6de82f3f68548f022f2c8a2bbce5c358bb6',
+        'PORT': 5432,
     }
 }
 
 
-STORAGES = {
+#STORAGES = {
     # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+#    "staticfiles": {
+ #       "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+  #  },
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -133,15 +137,21 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
+
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
+
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+
+STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-]
+)
 
-
-
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -157,3 +167,4 @@ EMAIL_PORT=465
 EMAIL_HOST_USER="correosdjango@gmail.com"
 EMAIL_HOST_PASSWORD="xdqhkjqjdpobzvmf"
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
