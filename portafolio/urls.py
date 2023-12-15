@@ -29,4 +29,4 @@ urlpatterns = [
     path('prueba/', view.prueba, name='Prueba'),
     path('download/', view.download_apk, name='download_apk'),
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
